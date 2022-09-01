@@ -26,10 +26,11 @@ var repliMsg = [
 
 function hiReply(){
   let msgRepl = msg;
-  if(msg.startWith(hiMsg[i])){
-    replier.reply(repliMsg.indexOf(hiMsg)); //이 i가 hiMsg에서 꺼내 쓰는건데 얠 어찌해야하지...
+  if(hiMsg.indexOf(msg) != -1){
+    replier.reply(repliMsg[himsg.indexOf(himsg)]);
+  }else{
+    break;
   }
-//ㅁ?ㄹ겠다
 }
 
 
