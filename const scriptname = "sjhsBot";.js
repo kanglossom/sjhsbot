@@ -12,7 +12,22 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   if(msg.startWith('/도움말')) {
       replier.reply(help());
   }
+  if(msg.startWith('/인사')) {
+    replier.reply(sayhilist());
+  }
 }
+
+var hiMsg = ['ㄱㅅ', 'ㅅㄱ'];
+var repliMsg = [
+  '고맙다~',
+  '웅 너나 수고해~'
+];
+
+if(msg.startWith(hiMsg[i])){
+  replier.reply(hiMsg[i]);
+}
+
+
 
 //아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다.
 function onCreate(savedInstanceState, activity) {
@@ -30,4 +45,20 @@ function onPause(activity) {}
 
 function onStop(activity) {}
 
+function help(){
+  let msg = '안녕하세요! 선정봇이예요 >.0';
+  const help_msg = [
+    '/도움말 : 도움말을 보여줘요.',
+    '/인사 : 선정봇과 인사해요.'
+  ];
+  msg += help_msg.join('\n');
+
+  return msg;
+}
+
+
+function sayhilist() {
+  let msg = '다음의 단어에 선정봇이 작동합니다.'
+  const hi_msg = ['ㄱㅅ', 'ㅅㄱ']
+}
 
