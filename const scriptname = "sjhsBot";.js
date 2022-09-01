@@ -25,9 +25,11 @@ var repliMsg = [
 ];
 
 function hiReply(){
+  let msgRepl = msg;
   if(msg.startWith(hiMsg[i])){
-    replier.reply(repliMsg[i]); //이 i가 hiMsg에서 꺼내 쓰는건데 얠 어찌해야하지...
+    replier.reply(repliMsg.indexOf(hiMsg)); //이 i가 hiMsg에서 꺼내 쓰는건데 얠 어찌해야하지...
   }
+//ㅁ?ㄹ겠다
 }
 
 
