@@ -19,6 +19,10 @@ const scriptname = "sjhsBot";
     replier.reply(Hwater());
    } 
 
+   if(msg.startsWith('!급식')){
+    replier.reply(bobnymnym());
+   }
+
    function hiReply(){
     if(hiMsg.indexOf(msg) != -1){
         replier.reply(repliMsg[hiMsg.indexOf(hiMsg)]);
@@ -51,7 +55,7 @@ const scriptname = "sjhsBot";
  function onStop(activity) {} 
   
  function help( ){ 
-   let msg = '안녕하세요! 선정봇이예요 >.0\n';
+  let msg = '안녕하세요! 선정봇이예요 >.0\n';
   const help_msg = [ 
      '!도움말 : 도움말을 보여줘요.', 
      '!인사 : 선정봇과 인사해요.' 
@@ -68,5 +72,15 @@ const scriptname = "sjhsBot";
  }
  
  function Hwater(){
+  let msg = '...'
   //pc사용 가능할때 이거부터 넣기
+
+  return msg;
  }
+
+function bobnymnym(){
+  let msg = '배고프냐?ㅋㅋ'
+  //pc사용가능할떄 넣기 참고할 페이지는 웨일에 스크랩해둠.
+
+  return msg;
+}
