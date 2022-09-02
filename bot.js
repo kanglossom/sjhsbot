@@ -11,9 +11,12 @@ const scriptname = "sjhsBot";
  function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) { 
    if(msg.startsWith('!도움말')){ 
         replier.reply(help( )); 
-  } 
+   } 
    if(msg.startsWith('!인사')) { 
      replier.reply(sayhilist()); 
+   }
+   if(msg.startsWith('!한강물온도')){
+    replier.reply(Hwater());
    } 
 
    function hiReply(){
@@ -64,5 +67,6 @@ const scriptname = "sjhsBot";
    const hi_msg = ['ㄱㅅ', 'ㅅㄱ'] ;
  }
  
- 
- 
+ function Hwater(){
+  //pc사용 가능할때 이거부터 넣기
+ }
