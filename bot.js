@@ -55,10 +55,12 @@ const scriptname = "sjhsBot";
  function onStop(activity) {} 
   
  function help( ){ 
-  let msg = '안녕하세요! 선정봇이예요 >.0\n';
+  let msg = '안녕하세요! 선정봇이예요 >.0\n 아래 명령어를 입력하시면 선정봇이 작동해요! \n';
   const help_msg = [ 
      '!도움말 : 도움말을 보여줘요.', 
-     '!인사 : 선정봇과 인사해요.' 
+     '!인사 : 선정봇과 인사해요.' ,
+     '!한강물온도 : 한강물 온도를 알려줘요.',
+     '!급식 : 급식정보를 알려줘요.'
    ]; 
    msg += help_msg.join('\n'); 
   
@@ -69,6 +71,9 @@ const scriptname = "sjhsBot";
  function sayhilist() { 
    let msg = '다음의 단어에 선정봇이 작동합니다.' 
    const hi_msg = ['ㄱㅅ', 'ㅅㄱ'] ;
+
+   msg += hi_msg.join('\n');
+   return msg;
  }
  
  function Hwater(){
