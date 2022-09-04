@@ -1,4 +1,11 @@
 const scriptname = "sjhsBot";
+
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+//jquery
+
 /** 
  * (string) room 
  * (string) sender 
@@ -79,13 +86,17 @@ function sayhilist() {
 
 function Hwater() {
 
-  let hangang_server_raw = org.jsoup.Jsoup.connect("https://api.hangang.msub.kr/").get().text();
-   let hangang_json = JSON.parse(hangang_server_raw);
-   var msg0 = "현재 한강 수온은 " + hangang_json.temp + "도 입니다.";
+  //let hangang_server_raw = org.jsoup.Jsoup.connect("https://api.hangang.msub.kr/").get().text();
+   //let hangang_json = JSON.parse(hangang_server_raw);
+   //var msg0 = "현재 한강 수온은 " + hangang_json.temp + "도 입니다.";
    //{"station":"노량진","status":"success","temp":"22.1","time":"24:00","type":"hangangAPI"}
    //status 사용해서 연결 실패시도 해보기
+   fetch("https://api.hangang.msub.kr/")
+   .then((response) => response.json())
+   .then((data) => data);
     
 
+    var msg0 = "현재 한강 수온은 " + data.temp + "도 입니다.";
     return msg0;
 }
 
