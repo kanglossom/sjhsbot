@@ -1,10 +1,6 @@
 const scriptname = "sjhsBot";
 
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-//jquery
+
 
 /** 
  * (string) room 
@@ -91,7 +87,7 @@ function Hwater() {
    //var msg0 = "현재 한강 수온은 " + hangang_json.temp + "도 입니다.";
    //{"station":"노량진","status":"success","temp":"22.1","time":"24:00","type":"hangangAPI"}
    //status 사용해서 연결 실패시도 해보기
-   fetch("https://api.hangang.msub.kr/")
+   let Hwater0 = fetch("https://api.hangang.msub.kr/")
    .then((response) => response.json())
    .then((data) => data);
     
