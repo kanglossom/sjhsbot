@@ -98,40 +98,11 @@ function Hwater() {
 
 function bobnymnym() {
     let msg = '배고프냐?ㅋㅋ'
-        //pc사용가능할떄 넣기 참고할 페이지는 웨일에 스크랩해둠.
+        //참고할 페이지는 웨일에 스크랩해둠.
         //B100000467 - 학교코드
+        //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
+        //급식정보 가져와서 표기해야함.
 
     return msg;
 }
 
-function bobnymnym() {
-    
-        var cut = msg.substring(6,msg.length)
-        var cut2 = cut.split("=")
-        var ct1 = cut2[0]
-        var ct2 = cut2[1]
-    //이 구조는 전에 가르치기 소스에서 설명해드렸습니다
-    
-        var day = new Date(); 
-        var m = (day.getMonth() + 1); 
-    //현재 달을 가져옵니다
-    
-        var pap = (m+"월 "+ct2+"일 [중식]");
-    //ct2는 위에서 설정한겁니다 ex)/중식검색 예일고=7 이라고 치면
-    //ct2가 지금 7을 의미합니다 그래서 6월 7일 [중식] 이라고 나올겁니다 
-    
-        var u=Utils.getWebText("http://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="+ ct1 + "+급식");
-    //여기는 ct1인 학교이름을 넣어줬습니다
-        var a=u.split(pap+"</strong>"); 
-        var b=a[1].split("</ul>");
-        b = b[0].replace(/(<([^>]+)>)/g, "");
-        replier.reply("["+ct1+"]\n"+pap+"입니다.\n"+b+"※숫자는 식품 알레르기 식별 번호입니다.※\n1.난류 2.우유 3.메밀 4.땅콩 5.대두 6.밀 7.고등어 8.게 9.새우 10.돼지고기 11.복숭아 12.토마토 13.아황산류 14.호두 15.닭고기 16.쇠고기 17.오징어 18.조개류(굴,전복,홍합 포함)"); 
-        } 
-    
-    catch(e)
-    {
-        replier.reply("학교 정보가 없거나 식단이 없습니다.");
-        }
-    //여기까지 전에 배포했던 소스랑 똑같습니다 reply부분에서 ct1만 바꿔줬습니다
-    
-    //몸체닫기
