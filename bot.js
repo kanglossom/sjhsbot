@@ -102,6 +102,15 @@ function bobnymnym() {
         //B100000467 - 학교코드
         //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
         //급식정보 가져와서 표기해야함.
+    var now = new Date();
+    var mon = now.getMonth();
+    mon += 1;
+    var day = now.getDay();
+    //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
+    let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
+    msg += dateMsg;
+
+
 
     return msg;
 }
