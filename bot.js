@@ -99,7 +99,7 @@ function Hwater() {
 function bobnymnym() {
     let msg = '배고프냐?ㅋㅋ'
         //참고할 페이지는 웨일에 스크랩해둠.
-        //B100000467 - 학교코드
+        //7010191 - 학교코드 (B10)
         //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
         //급식정보 가져와서 표기해야함.
     var now = new Date();
@@ -108,6 +108,13 @@ function bobnymnym() {
     var day = now.getDay();
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
     let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
+    
+    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD=220908"
+    function getURLParams(url){
+        var result = {};
+        url.replace(/[!&]{1}([^=&#]+)=([^&#]*)/g, function(s,k,v){result[k]=decodeURIComponent(v);});
+        return result;
+    }
     msg += dateMsg;
 
 
