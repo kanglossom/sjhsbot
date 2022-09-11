@@ -104,18 +104,45 @@ function bobnymnym() {
         //급식정보 가져와서 표기해야함.
     var now = new Date();
     var mon = now.getMonth();
-    mon += 1;
+    var year = now.getFullYear();
+    var year=string.substring(2,3)
     var day = now.getDay();
+    mon += 1;
+    
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
     let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
+    var ymd = year+mon+day;
     
-    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD=220908"
-    function getURLParams(url){
-        var result = {};
-        url.replace(/[!&]{1}([^=&#]+)=([^&#]*)/g, function(s,k,v){result[k]=decodeURIComponent(v);});
-        return result;
+    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
+    var result = Utils.getWebText(url,false,false)
+    
+    try{
+                    
+        calories = result.split("CAL_INFO\":\"")[1].split("\",\"NTR_INFO")[0];
+        result = result.split("\",\"ORPLC")[0].split("\"DDISH_NM\":\"")[1].replace(/(<([^>]+)>)/g, "");
+        result = result.replace(/amp;/gi, "");
+        result = result.replace(/undefined/gi,"");
+        result = result.replace(/\./gi, "");
+        result = result.replace(/\*/gi, "");
+        
+        result = result.trim(); 
+        result = result.replace(/^ +/gm,"");
+
+        result = result.replace(/[0-9]/g, "");
+        
+        
+
     }
+    catch(e){
+        replier.reply("급식 정보가 없습니다");
+        
+    }
+    result += "\n";
+            result += "총 ";
+            result += calories;
+   
     msg += dateMsg;
+    msg += result;
 
 
 
