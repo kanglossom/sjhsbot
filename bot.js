@@ -94,11 +94,11 @@ function bobnymnym() {
     mon += 1;
     mon = String( mon );
     day = String( day );
-    if(month.length==1){
-        month = "0" + month;
+    if(mon.length==1){
+        mon = "0" + mon;
     }
-    if(date.length == 1){
-        date = "0" + date;
+    if(day.length == 1){
+        day = "0" + day;
     }
     
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
