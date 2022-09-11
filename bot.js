@@ -80,21 +80,7 @@ function sayhilist() {
     return msg;
 }
 
-function Hwater() {
 
-  //let hangang_server_raw = org.jsoup.Jsoup.connect("https://api.hangang.msub.kr/").get().text();
-   //let hangang_json = JSON.parse(hangang_server_raw);
-   //var msg0 = "현재 한강 수온은 " + hangang_json.temp + "도 입니다.";
-   //{"station":"노량진","status":"success","temp":"22.1","time":"24:00","type":"hangangAPI"}
-   //status 사용해서 연결 실패시도 해보기
-   let Hwater0 = fetch("https://api.hangang.msub.kr/")
-   .then((response) => response.json())
-   .then((data) => data);
-    //fetch is not defined
-
-    var msg0 = "현재 한강 수온은 " + data.temp + "도 입니다.";
-    return msg0;
-}
 
 function bobnymnym() {
     let msg = '배고프냐?ㅋㅋ'
@@ -108,8 +94,10 @@ function bobnymnym() {
     var day = now.getDay();
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
     let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
+
+    var 
     
-    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD=220908"
+    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="
     function getURLParams(url){
         var result = {};
         url.replace(/[!&]{1}([^=&#]+)=([^&#]*)/g, function(s,k,v){result[k]=decodeURIComponent(v);});
