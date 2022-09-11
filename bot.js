@@ -92,8 +92,8 @@ function bobnymnym() {
     var year = now.getFullYear();
     var day = now.getDay();
     mon += 1;
-    month = String( month );
-    date = String( date );
+    mon = String( mon );
+    day = String( day );
     if(month.length==1){
         month = "0" + month;
     }
