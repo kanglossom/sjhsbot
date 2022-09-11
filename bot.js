@@ -89,17 +89,24 @@ function bobnymnym() {
         //급식정보 가져와서 표기해야함.
     var now = new Date();
     var mon = now.getMonth();
-    var year1 = now.getFullYear();
-    var year=str.substring(2,3);
+    var year = now.getFullYear();
     var day = now.getDay();
     mon += 1;
+    month = String( month );
+    date = String( date );
+    if(month.length==1){
+        month = "0" + month;
+    }
+    if(date.length == 1){
+        date = "0" + date;
+    }
     
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
     let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
     var ymd = year+mon+day;
     
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
-    var result = Utils.getWebText(url,false,false);
+    var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
     
     try{
                     
