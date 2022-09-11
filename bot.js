@@ -124,11 +124,12 @@ function bobnymnym() {
         
         
 
-    }
-    catch(e){
-        replier.reply("급식 정보가 없습니다");
+    }catch(e){
+        msg += "급식 정보가 없습니다";
+        break;
         
     }
+    
     result += "\n";
             result += "총 ";
             result += calories;
