@@ -82,7 +82,7 @@ function sayhilist() {
 
 
 function bobnymnym() {
-    let msg = '배고프냐?ㅋㅋ'
+    let msg = '배고프냐?ㅋㅋ \n'
         //참고할 페이지는 웨일에 스크랩해둠.
         //7010191 - 학교코드 (B10)
         //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
@@ -97,12 +97,10 @@ function bobnymnym() {
     if(mon.length==1){
         mon = "0" + mon;
     }
-    if(day.length == 1){
-        day = "0" + day;
-    }
+    
     
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
-    let dateMsg = mon + "월 " + day + "일 급식입니다!" ;
+    let dateMsg = mon + "월 " + day + "일 급식입니다! \n" ;
     var ymd = year+mon+day;
     
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
@@ -110,7 +108,7 @@ function bobnymnym() {
     
     try{
                     
-        calories = result.split("CAL_INFO\":\"")[1].split("\",\"NTR_INFO")[0];
+        //calories = result.split("CAL_INFO\":\"")[1].split("\",\"NTR_INFO")[0];
         result = result.split("\",\"ORPLC")[0].split("\"DDISH_NM\":\"")[1].replace(/(<([^>]+)>)/g, "");
         result = result.replace(/amp;/gi, "");
         result = result.replace(/undefined/gi,"");
