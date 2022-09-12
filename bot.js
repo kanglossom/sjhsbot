@@ -91,6 +91,7 @@ function bobnymnym() {
     var mon = now.getMonth();
     var year = now.getFullYear();
     var day = now.getDate();
+    var yoil = now.getDay();
     mon += 1;
     mon = String( mon );
     day = String( day );
@@ -102,7 +103,10 @@ function bobnymnym() {
     }
     
     
-    //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
+    var yoilHan = {
+        yoil[1] :1,
+        //월화수목 개발중이ㅕㅅ음
+    };
     let dateMsg = mon + "월 " + day + "일 급식입니다! \n " ;
     var ymd = year+mon+day;
     
