@@ -112,6 +112,7 @@ function bobnymnym() {
     try{
                     
         //calories = result.split("CAL_INFO\":\"")[1].split("\",\"NTR_INFO")[0];
+        result = result.split("중식")[1];
         result = result.split("\",\"ORPLC")[0].split("\"DDISH_NM\":\"")[1].replace(/(<([^>]+)>)/g, "");
         result = result.replace(/amp;/gi, "");
         result = result.replace(/undefined/gi,"");
