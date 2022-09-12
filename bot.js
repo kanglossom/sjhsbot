@@ -90,17 +90,20 @@ function bobnymnym() {
     var now = new Date();
     var mon = now.getMonth();
     var year = now.getFullYear();
-    var day = now.getDay();
+    var day = now.getDate();
     mon += 1;
     mon = String( mon );
     day = String( day );
     if(mon.length==1){
         mon = "0" + mon;
     }
+    if(day.length==1){
+        day = "0" + day;
+    }
     
     
     //var yoil = ["일", "월", "화", "수", "목", "금", "토"];
-    let dateMsg = mon + "월 " + day + "일 급식입니다! \n" ;
+    let dateMsg = mon + "월 " + day + "일 급식입니다! \n " ;
     var ymd = year+mon+day;
     
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
