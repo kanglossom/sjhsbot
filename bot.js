@@ -25,20 +25,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(bobnymnym());
     }
 
-    function hiReply() {
-        if (hiMsg.indexOf(msg) != -1) {
-            let msg = repliMsg[hiMsg.indexOf(hiMsg)];
-        }
-        return msg;
-    }
-    hiReply();
+    
 }
-
-var hiMsg = ['ㄱㅅ', 'ㅅㄱ'];
-var repliMsg = [
-    '고맙다~',
-    '웅 너나 수고해~'
-];
 
 
 //아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다. 
@@ -121,12 +109,8 @@ function bobnymnym() {
         
     }
     
-
-   
     msg += dateMsg;
     msg += result;
-
-
 
     return msg;
 }
