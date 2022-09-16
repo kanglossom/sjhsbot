@@ -25,7 +25,20 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(bobnymnym());
     }
 
+    //사용자 등록하는걸 만들어야함.
     
+    if (msg.startsWith('!사용자등록')){
+        if(isGroupChat = false){
+            replier.reply("사용자 등록은 개인챗에서만 가능합니다.")
+        }else if(isGroupChat = true){
+            replier.reply("사용자 등록을 진행합니다.")
+            var user={
+                name : "",
+                grade : "",
+                class : "",
+            };
+        }
+    }
 }
 
 
