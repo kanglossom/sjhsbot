@@ -103,11 +103,8 @@ function bobnymnym() {
     }
     
     
-    var yoilHan = {
-        yoil[1] :1,
-        //월화수목 개발중이ㅕㅅ음
-    };
-    let dateMsg = mon + "월 " + day + "일 급식입니다! \n " ;
+    var yoilHan = ["월","화","수","목","금","토","일"];
+    let dateMsg = mon + "월 " + day + "일 " +yoilHan[yoil] + "요일 급식입니다! \n";
     var ymd = year+mon+day;
     
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
