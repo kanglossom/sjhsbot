@@ -78,27 +78,27 @@ function bobnymnym() {
         //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
         //급식정보 가져와서 표기해야함.
     var now = new Date();
-    var mon = now.getMonth();
+    var month = now.getMonth();
     var year = now.getFullYear();
-    var day = now.getDate();
+    var date = now.getDate();
     var yoil = now.getDay();
-    mon += 1;
-    mon = String( mon );
-    day = String( day );
-    if(mon.length==1){
-        mon = "0" + mon;
+    month += 1;
+    month = String( month );
+    date = String( date );
+    if(month.length==1){
+        month = "0" + month;
     }
-    if(day.length==1){
-        day = "0" + day;
+    if(date.length == 1){
+        date = "0" + date;
     }
     
     
     var yoilHan = ["월","화","수","목","금","토","일"];
-    let dateMsg = mon + "월 " + day + "일 " +yoilHan[yoil] + "요일 급식이래! \n";
-    var ymd = year+mon+day;
-    
-    let url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
-    let result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
+    let dateMsg = month + "월 " + date + "일 " +yoilHan[yoil-1] + "요일 급식이래! \n";
+    var ymd = year+month+date;
+    //10월 11일 화요일 급식이래 작동잘됨~
+    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
+    var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
     
     try{
                     
