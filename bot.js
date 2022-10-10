@@ -114,13 +114,8 @@ function bobnymnym() {
         result = result.replace(/^ +/gm,"");
 
         result = result.replace(/[0-9]/g, "");
-        
-        
-
     }catch(e){
         msg += "급식 정보가 없다는데?";
-        
-        
     }
     
     msg += dateMsg;
@@ -136,20 +131,12 @@ function Hwater() {
      let result = Utills.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
 
      try{
-                    
-        //여따 파싱하기
-        
-        
-
+        result = result.split("<W_TEMP>")[4];
+        result = result.split("</W_TEMP>")[3]; //선유 기준 온도.
     }catch(e){
-        msg += "저런. 한강가는길이 좀 막히네요.";
-        
-        
+        msg += "저런. 한강가는길이 좀 막히네요.";   
     }
 
-     var msg0 = "지금 한강 수온은 " + result + "도래.";
-     //{"station":"노량진","status":"success","temp":"22.1","time":"24:00","type":"hangangAPI"}
-     //status 사용해서 연결 실패시도 해보기
-     
-      return msg0;
+     var msg0 = "지금 한강 수온은 " + result + "°C 래!";
+     return msg0;
   }
