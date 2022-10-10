@@ -130,8 +130,9 @@ function bobnymnym() {
 }
 
 function Hwater() {
-
-     let url = ""; //서울시 열린데이터 광장에서 갖고오면 될듯 :)
+    //70514e677a6c756c35344245666372 인증키 
+     let url = "http://openapi.seoul.go.kr:8088/70514e677a6c756c35344245666372/xml/WPOSInformationTime/1/5/"; 
+     //서울시 열린데이터 광장에서 갖고오면 될듯 :) -> 가져옴.
      let result = Utills.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
 
      try{
