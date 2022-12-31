@@ -158,15 +158,27 @@ function Hwater() {
         var sem = 2
     }
 
-    let url = "https://open.neis.go.kr/hub/hisTimetable?Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&AY="+year+"&SEM="+sem+"&GRADE=1&CLRM_NM=13";
+    let url = "https://open.neis.go.kr/hub/hisTimetable?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&AY="+year+"&SEM="+sem+"&GRADE=1&CLRM_NM=13&LOAD_DTM="+ymd;
     var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
 
     try{
-        var set1 = result.split("ITRT_CNTNT")[1];
-        set1 = set1.split("LOAD_DTM")[0];
-        set1 = set1.split(":")[1]
-        set1 = set1.split('"')[1]
-        set1 = set1.split('"')[0]
+        var perio1 = result.split("PERIO")[1];
+            perio1 = perio1.split("ITRT_CNTNT")[0]; //":"1","
+            perio1 = perio1.split(":")[1]; //"1","
+            perio1 = perio1.split('"')[1]; // 1","
+            perio1 = perio1.split('"')[0]; // 1 *월요일 1교시의 '1' 파싱.
+
+        var name1 = result.split("ITRT_CNTNT")[1];
+            name1 = name1.split("LOAD_DTM")[0]; //":"한국사","
+            name1 = name1.split(":")[1] //"한국사","
+            name1 = name1.split('"')[1] // 한국사","
+            name1 = name1.split('"')[0] //한국사  *월요일 1교시 한국사 파싱.
+
+
+
+        for(i=0;i<=7;i++){} //파싱할때 저 0과 1 i로 넣고 돌리면 되겠죠?
+
+        //일단 그 날짜의 일주일치 시간표가 다 뜸.
     }catch(e){
         msg += "저런. 한강가는길이 좀 막히네요.";   
     }
