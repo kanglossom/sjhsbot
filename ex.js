@@ -7,8 +7,11 @@ const url = 'https://open.neis.go.kr/hub/hisTimetable?Type=json&pIndex=1&pSize=1
       var set1 = result.split("ITRT_CNTNT")[1];
       set1 = set1.split("LOAD_DTM")[0];
       set1 = set1.split(":")[1]
+      set1 = set1.split('"')[1]
+      set1 = set1.split('"')[0]
       console.log(set1); // 긁어온 내용 뿌리기
       };
+      request.send();
 //파싱 테스트할때 콘솔에서 쓰는 코드.
 
 //이거도 됨
@@ -30,7 +33,8 @@ request.onload = function () {
   var set1 = result.split("ITRT_CNTNT")[1];
   set1 = set1.split("LOAD_DTM")[0];
   set1 = set1.split(":")[1]
-  console.log(set1); // 긁어온 내용 뿌리기
+  set1 = set1.split('"')[1]
+  set1 = set1.split('"')[0]
   };
 
 

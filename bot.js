@@ -165,6 +165,8 @@ function Hwater() {
         var set1 = result.split("ITRT_CNTNT")[1];
         set1 = set1.split("LOAD_DTM")[0];
         set1 = set1.split(":")[1]
+        set1 = set1.split('"')[1]
+        set1 = set1.split('"')[0]
     }catch(e){
         msg += "저런. 한강가는길이 좀 막히네요.";   
     }
