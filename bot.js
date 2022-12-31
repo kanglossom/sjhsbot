@@ -25,7 +25,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(bobnymnym());
     }
 
-    //사용자 등록하는걸 만들어야함.
+    if (msg.startsWith('!시간표')) {
+        replier.reply("시간표 알려줘?");
+        replier.reply(schedule());
+    }
+
+    //사용자 등록하는걸 만들어야함. --일단보류--
     
     if (msg.startsWith('!사용자등록')){
         if(isGroupChat = false){
@@ -64,7 +69,8 @@ function help() {
         '!도움말 : 도움말을 보여줘요.',
         '!한강물온도 : 한강물 온도를 알려줘요.',
         '!급식 : 급식정보를 알려줘요.',
-        '!사용자등록 : 사용자를 등록할 수 있어요.'
+        '!사용자등록 : 사용자를 등록할 수 있어요.',
+        '!시간표 : 시간표를 보여줘요.'
     ];
     msg += help_msg.join('\n');
 
@@ -126,10 +132,10 @@ function bobnymnym() {
 
 function Hwater() {
     //70514e677a6c756c35344245666372 인증키 
-     let url = "http://openapi.seoul.go.kr:8088/70514e677a6c756c35344245666372/xml/WPOSInformationTime/1/5/"; 
+     let url = "http://openapi.seoul.go.kr:8088/70514e677a6c756c35344245666372/json/WPOSInformationTime/1/5/"; 
      //서울시 열린데이터 광장에서 갖고오면 될듯 :) -> 가져옴.
      var result = Utils.getWebText(url,false,false);
-     //UNDEFIND. 얘가 링크에 있는걸 가져오지 못하는듯?
+     //UNDEFIND. 얘가 링크에 있는걸 가져오지 못하는듯? -> 링크에 xml을 json으로 바꾸면 되는거였음^^
 
      try{
         result = result.split("<W_TEMP>")[4];
@@ -140,4 +146,27 @@ function Hwater() {
 
      var msg0 = "지금 한강 수온은 " + result + "°C 래!";
      return msg0;
+  }
+
+  function schedule(){
+    //나이스api에서 가져와야함. 일단 우리반 시간표 보여주는걸 먼저 만들자.
+
+    //학기가 1인지 2인지.
+    if(month<8){
+        var sem = 1
+    }else if(month>=8){
+        var sem = 2
+    }
+
+    let url = "https://open.neis.go.kr/hub/hisTimetable?Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&AY="+year+"&SEM="+sem+"&GRADE=1&CLRM_NM=13";
+    var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
+
+    try{
+        var set1 = result.split("ITRT_CNTNT")[1];
+        set1 = set1.split("LOAD_DTM")[0];
+        set1 = set1.split(":")[1]
+    }catch(e){
+        msg += "저런. 한강가는길이 좀 막히네요.";   
+    }
+
   }
