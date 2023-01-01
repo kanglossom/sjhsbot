@@ -138,8 +138,11 @@ function Hwater() {
      //UNDEFIND. 얘가 링크에 있는걸 가져오지 못하는듯? -> 링크에 xml을 json으로 바꾸면 되는거였음^^
 
      try{
-        result = result.split("<W_TEMP>")[4];
-        result = result.split("</W_TEMP>")[3]; //선유 기준 온도.
+        result = result.split("W_TEMP")[4];
+        result = result.split("W_PH")[3]; //선유 기준 온도. ":"3.9","
+        result = result.split(":")[1]; // "3.9","
+        result = result.split('"')[1]; // 3.9","
+        result = result.split('"')[0]; //3.9
     }catch(e){
         msg += "저런. 한강가는길이 좀 막히네요.";   
     }
