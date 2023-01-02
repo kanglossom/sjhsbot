@@ -139,7 +139,7 @@ function Hwater() {
 
      try{
         result = result.split("W_TEMP")[4];
-        result = result.split("W_PH")[3]; //선유 기준 온도. ":"3.9","
+        result = result.split("W_PH")[0]; //선유 기준 온도. ":"3.9","
         result = result.split(":")[1]; // "3.9","
         result = result.split('"')[1]; // 3.9","
         result = result.split('"')[0]; //3.9
