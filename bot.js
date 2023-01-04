@@ -178,11 +178,11 @@ function Hwater() {
 
         let acaName = {};
         for(i=1;i<=7;i++){
-            acaName[`aca${i}`] = result.split("ITRT_CNTNT")[1];
-            acaName[`aca${i}`] = acaName[`aca${i}`].split("LOAD_DTM")[0]; //":"한국사","
-            acaName[`aca${i}`] = acaName[`aca${i}`].split(":")[1] //"한국사","
-            acaName[`aca${i}`] = acaName[`aca${i}`].split('"')[1] // 한국사","
-            acaName[`aca${i}`] = acaName[`aca${i}`].split('"')[0] //한국사  *월요일 1교시 한국사 파싱.
+            acaName[`aca${i}`] = result.split("ITRT_CNTNT")[i];
+            acaName[`aca${i}`] = acaName[`aca${i}`].split("LOAD_DTM")[i-1]; //":"한국사","
+            acaName[`aca${i}`] = acaName[`aca${i}`].split(":")[i] //"한국사","
+            acaName[`aca${i}`] = acaName[`aca${i}`].split('"')[i] // 한국사","
+            acaName[`aca${i}`] = acaName[`aca${i}`].split('"')[i-1] //한국사  *월요일 1교시 한국사 파싱.
         }
 
         //일단 그 날짜의 일주일치 시간표가 다 뜸.
