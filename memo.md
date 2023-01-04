@@ -34,3 +34,5 @@ https://blog.naver.com/PostView.naver?blogId=izure&logNo=221020095236&redirect=D
 시간표 우리반 기준으로 만들고 -> 사용자 입력받기 -> 전체 사용자가 각각의 정보에 맞게 시간표 사용.
 
 -> 한강물기능 잘 돌아가는지 체크하기 + json알아냈으니까 파싱하기.
+
+하튼 한강물 기능까지 완료~!
