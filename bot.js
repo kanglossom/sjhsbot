@@ -152,6 +152,7 @@ function Hwater() {
   }
 
   function schedule(){
+    let mag = ''
     //나이스api에서 가져와야함. 일단 우리반 시간표 보여주는걸 먼저 만들자.
 
     //학기가 1인지 2인지.
@@ -172,6 +173,7 @@ function Hwater() {
             period[`perio${i}`] = period[`perio${i}`].split(":")[i]; //"1","
             period[`perio${i}`] = period[`perio${i}`].split('"')[i]; // 1","
             period[`perio${i}`] = period[`perio${i}`].split('"')[i-1]; // 1 *월요일 1교시의 '1' 파싱.
+
         } 
         //파싱할때 저 0과 1 i로 넣고 돌리면 되겠죠? -> 완료
 
@@ -185,8 +187,11 @@ function Hwater() {
         }
 
         //이제 이케하면 하루치 시간표 다 파싱한건가.
+        for(i=1;i<=7;i++){
+        msg += period[`perio${i}`]+'교시 :'+ acaName[`aca${i}`];
+        }
     }catch(e){
         msg += "저런.";   
     }
-
+    return msg;
   }
