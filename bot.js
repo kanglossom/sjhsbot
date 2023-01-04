@@ -131,6 +131,7 @@ function bobnymnym() {
 }
 
 function Hwater() {
+    let msg=''
     //70514e677a6c756c35344245666372 인증키 
      let url = "http://openapi.seoul.go.kr:8088/70514e677a6c756c35344245666372/json/WPOSInformationTime/1/5/"; 
      //서울시 열린데이터 광장에서 갖고오면 될듯 :) -> 가져옴.
@@ -143,12 +144,11 @@ function Hwater() {
         result = result.split(":")[1]; // "3.9","
         result = result.split('"')[1]; // 3.9","
         result = result.split('"')[0]; //3.9
+        msg = "지금 한강 수온은 " + result + "°C 래!";
     }catch(e){
         msg += "저런. 한강가는길이 좀 막히네요.";   
     }
-
-     var msg0 = "지금 한강 수온은 " + result + "°C 래!";
-     return msg0;
+     return msg;
   }
 
   function schedule(){
@@ -165,7 +165,6 @@ function Hwater() {
     var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
 
     try{
-
         let period = {};
         for(i=1;i<=7;i++){
             period[`perio${i}`] = result.split("PERIO")[i]; 
@@ -185,7 +184,7 @@ function Hwater() {
             acaName[`aca${i}`] = acaName[`aca${i}`].split('"')[i-1] //한국사  *월요일 1교시 한국사 파싱.
         }
 
-        //일단 그 날짜의 일주일치 시간표가 다 뜸.
+        //이제 이케하면 하루치 시간표 다 파싱한건가.
     }catch(e){
         msg += "저런.";   
     }
