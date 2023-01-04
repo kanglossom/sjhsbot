@@ -39,3 +39,20 @@ request.onload = function () {
 
 
 request.send();
+
+
+
+
+var perio1 = result.split("PERIO")[1];
+            perio1 = perio1.split("ITRT_CNTNT")[0]; //":"1","
+            perio1 = perio1.split(":")[1]; //"1","
+            perio1 = perio1.split('"')[1]; // 1","
+            perio1 = perio1.split('"')[0]; // 1 *월요일 1교시의 '1' 파싱.
+
+        var name1 = result.split("ITRT_CNTNT")[1];
+            name1 = name1.split("LOAD_DTM")[0]; //":"한국사","
+            name1 = name1.split(":")[1] //"한국사","
+            name1 = name1.split('"')[1] // 한국사","
+            name1 = name1.split('"')[0] //한국사  *월요일 1교시 한국사 파싱.
+
+//혹시몰라서 넣어둠.
