@@ -35,4 +35,6 @@ https://blog.naver.com/PostView.naver?blogId=izure&logNo=221020095236&redirect=D
 
 -> 한강물기능 잘 돌아가는지 체크하기 + json알아냈으니까 파싱하기.
 
-하튼 한강물 기능까지 완료~!
+하튼 한강물 기능까지 완료~
+사용자등록은 나중에 DB로 저장하면 될것같고 -> mySQL 쓸생각 하고있음.
+우선 시간표는 객체로 만들어서 저장하면 굳?
