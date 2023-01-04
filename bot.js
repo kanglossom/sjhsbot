@@ -177,13 +177,18 @@ function Hwater() {
             name1 = name1.split('"')[1] // 한국사","
             name1 = name1.split('"')[0] //한국사  *월요일 1교시 한국사 파싱.
 
-
-
-        for(i=0;i<=7;i++){} //파싱할때 저 0과 1 i로 넣고 돌리면 되겠죠?
+        let period = {};
+        for(i=1;i<=7;i++){
+            period[`perio${i}`] = result.split("PERIO")[i]; //밑에도 변수명 바꾸기
+            perio1 = perio1.split("ITRT_CNTNT")[i-1]; //":"1","
+            perio1 = perio1.split(":")[i]; //"1","
+            perio1 = perio1.split('"')[i]; // 1","
+            perio1 = perio1.split('"')[i-1]; // 1 *월요일 1교시의 '1' 파싱.
+        } //파싱할때 저 0과 1 i로 넣고 돌리면 되겠죠?
 
         //일단 그 날짜의 일주일치 시간표가 다 뜸.
     }catch(e){
-        msg += "저런. 한강가는길이 좀 막히네요.";   
+        msg += "저런.";   
     }
 
   }
