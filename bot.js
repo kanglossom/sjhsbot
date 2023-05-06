@@ -113,7 +113,7 @@ function bobnymnym() {
     
    
     dateString();
-    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
+    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 중식이래! \n";
     var ymd = year+month+date;
     //10월 11일 화요일 급식이래 작동잘됨~
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
@@ -147,7 +147,7 @@ function seaksik() {
     let msg = '';
     
     dateString();
-    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
+    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 석식이래! \n";
     var ymd = year+month+date;
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
     var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
@@ -166,11 +166,11 @@ function seaksik() {
         result = result.replace(/^ +/gm,"");
 
         result = result.replace(/[0-9]/g, "");
+        msg += dateMsg;
     }catch(e){
         msg += "급식 정보가 없다는데?";
     }
     
-    msg += dateMsg;
     msg += result;
 
     return msg;
