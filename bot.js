@@ -30,6 +30,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(schedule());
     }
 
+    //이선우 요청으로 개발하는 석식 ^^
+    if (msg.startsWith('!석식')) {
+        replier.reply("오늘 석식이 뭐드라...?");
+        replier.reply(seaksik());
+    }
+
     //사용자 등록하는걸 만들어야함. --일단보류--
     
     if (msg.startsWith('!사용자등록')){
@@ -77,18 +83,19 @@ function help() {
     return msg;
 }
 
-function bobnymnym() {
-    let msg = '';
-        //참고할 페이지는 웨일에 스크랩해둠.
-        //7010191 - 학교코드 (B10)
-        //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
-        //급식정보 가져와서 표기해야함.
+function date() {
     var now = new Date();
     var month = now.getMonth();
     var year = now.getFullYear();
     var date = now.getDate();
     var yoil = now.getDay();
     month += 1;
+    var yoilHan = ["월","화","수","목","금","토","일"];
+    var todayYoil = yoilHan[yoil-1]
+
+}
+
+function dateString(){
     month = String( month );
     date = String( date );
     if(month.length==1){
@@ -97,10 +104,18 @@ function bobnymnym() {
     if(date.length == 1){
         date = "0" + date;
     }
+}
+
+function bobnymnym() {
+    let msg = '';
+        //참고할 페이지는 웨일에 스크랩해둠.
+        //7010191 - 학교코드 (B10)
+        //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
+        //급식정보 가져와서 표기해야함.
     
-    
-    var yoilHan = ["월","화","수","목","금","토","일"];
-    let dateMsg = month + "월 " + date + "일 " +yoilHan[yoil-1] + "요일 급식이래! \n";
+    date();
+    dateString();
+    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
     var ymd = year+month+date;
     //10월 11일 화요일 급식이래 작동잘됨~
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
@@ -128,6 +143,36 @@ function bobnymnym() {
     msg += result;
 
     return msg;
+}
+
+function seaksik() {
+    let msg = '';
+    var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
+    var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
+    
+    try{
+                    
+        //calories = result.split("CAL_INFO\":\"")[1].split("\",\"NTR_INFO")[0];
+        result = result.split("석식")[1];
+        result = result.split("\",\"ORPLC")[0].split("\"DDISH_NM\":\"")[1].replace(/(<([^>]+)>)/g, "");
+        result = result.replace(/amp;/gi, "");
+        result = result.replace(/undefined/gi,"");
+        result = result.replace(/\./gi, "");
+        result = result.replace(/\*/gi, "");
+        
+        result = result.trim(); 
+        result = result.replace(/^ +/gm,"");
+
+        result = result.replace(/[0-9]/g, "");
+    }catch(e){
+        msg += "급식 정보가 없다는데?";
+    }
+    
+    msg += dateMsg;
+    msg += result;
+
+    return msg;
+
 }
 
 function Hwater() {
