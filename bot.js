@@ -1,5 +1,13 @@
 const scriptname = "sjhsBot";
 
+var now = new Date();
+var month = now.getMonth();
+var year = now.getFullYear();
+var date = now.getDate();
+var yoil = now.getDay();
+month += 1;
+var yoilHan = ["월","화","수","목","금","토","일"];
+var todayYoil = yoilHan[yoil-1];
 
 
 /** 
@@ -84,17 +92,6 @@ function help() {
     return msg;
 }
 
-function date() {
-    var now = new Date();
-    var month = now.getMonth();
-    var year = now.getFullYear();
-    var date = now.getDate();
-    var yoil = now.getDay();
-    month += 1;
-    var yoilHan = ["월","화","수","목","금","토","일"];
-    var todayYoil = yoilHan[yoil-1];
-
-}
 
 function dateString(){
     month = String( month );
@@ -114,7 +111,7 @@ function bobnymnym() {
         //코드의 순서(?) 먼저 매일매일의 날짜를 가져와서 n월 n일 급식입니다. 시전하기.
         //급식정보 가져와서 표기해야함.
     
-    date();
+   
     dateString();
     let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
     var ymd = year+month+date;
@@ -148,6 +145,8 @@ function bobnymnym() {
 
 function seaksik() {
     let msg = '';
+    
+    dateString();
     let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
     var ymd = year+month+date;
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
