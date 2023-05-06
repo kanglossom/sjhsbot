@@ -39,9 +39,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     //사용자 등록하는걸 만들어야함. --일단보류--
     
     if (msg.startsWith('!사용자등록')){
-        if(isGroupChat = false){
+        if(isGroupChat == false){
             replier.reply("사용자 등록은 개인챗에서만 가능합니다.")
-        }else if(isGroupChat = true){
+        }else if(isGroupChat == true){
             replier.reply("사용자 등록을 진행합니다.")
             var user={
                 name : "",
@@ -76,7 +76,8 @@ function help() {
         '!한강물온도 : 한강물 온도를 알려줘요.',
         '!급식 : 급식정보를 알려줘요.',
         '!사용자등록 : 사용자를 등록할 수 있어요.',
-        '!시간표 : 시간표를 보여줘요.'
+        '!시간표 : 시간표를 보여줘요.',
+        '!석식 : 석식정보를 알려줘요.'
     ];
     msg += help_msg.join('\n');
 
@@ -91,7 +92,7 @@ function date() {
     var yoil = now.getDay();
     month += 1;
     var yoilHan = ["월","화","수","목","금","토","일"];
-    var todayYoil = yoilHan[yoil-1]
+    var todayYoil = yoilHan[yoil-1];
 
 }
 
@@ -147,6 +148,8 @@ function bobnymnym() {
 
 function seaksik() {
     let msg = '';
+    let dateMsg = month + "월 " + date + "일 " +todayYoil + "요일 급식이래! \n";
+    var ymd = year+month+date;
     var url = "https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=6b15c10192db4d8194e4b3c1b5df01c5&Type=json&plndex=1&pSize=30&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010191&MLSV_YMD="+ymd;
     var result = Utils.getWebText(url,false,false).split("<body>")[1].split("</body>")[0];
     
