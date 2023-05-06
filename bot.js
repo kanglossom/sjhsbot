@@ -61,22 +61,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 }
 
 
-//아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다. 
-function onCreate(savedInstanceState, activity) {
-    var textView = new android.widget.TextView(activity);
-    textView.setText("Hello, World!");
-    textView.setTextColor(android.graphics.Color.DKGRAY);
-    activity.setContentView(textView);
-}
-
-function onStart(activity) {}
-
-function onResume(activity) {}
-
-function onPause(activity) {}
-
-function onStop(activity) {}
-
 function help() {
     let msg = '안녕하세요! 선정봇이예요 >.0\n 아래 명령어를 입력하시면 선정봇이 작동해요! \n';
     const help_msg = [

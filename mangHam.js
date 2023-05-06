@@ -1,3 +1,6 @@
+//사실상 코드저장소.
+
+
 //시간표기능 개발 중단 -> 2학년 시간표에 선택이 너무 많아서 의미가 없음.
 function schedule(){
     let mag = ''
@@ -43,3 +46,22 @@ function schedule(){
     }
     return msg;
   }
+
+  //어따쓰는지 몰라서요...
+
+  //아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다. 
+function onCreate(savedInstanceState, activity) {
+    var textView = new android.widget.TextView(activity);
+    textView.setText("Hello, World!");
+    textView.setTextColor(android.graphics.Color.DKGRAY);
+    activity.setContentView(textView);
+}
+
+//역시 어따쓰는지 모르는것들
+function onStart(activity) {}
+
+function onResume(activity) {}
+
+function onPause(activity) {}
+
+function onStop(activity) {}
